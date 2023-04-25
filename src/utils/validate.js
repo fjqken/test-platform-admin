@@ -16,6 +16,8 @@ export function isExternal(path) {
  */
 export function validUsername(str) {
   const valid_map = ['admin', 'editor']
+  // .trim “trim() 函数移除字符串两侧的空白字符或其他预定义字符
+  console.log(valid_map.indexOf(str.trim()))
   return valid_map.indexOf(str.trim()) >= 0
 }
 
