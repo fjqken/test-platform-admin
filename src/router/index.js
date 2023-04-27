@@ -170,6 +170,29 @@ export const asyncRoutes = [
       }
     ]
   },
+  {
+    path: '/test-request',
+    component: Layout,
+    redirect: '/test-request',
+    alwaysShow: true, // will always show the root menu
+    name: 'test-request',
+    meta: {
+      title: 'TestRequest',
+      icon: 'lock',
+      roles: ['admin', 'editor'] // you can set roles in root nav
+    },
+    children: [
+      {
+        path: 'interface-debugging',
+        component: () => import('@/views/test-request/interface-debugging'),
+        name: 'interface-debugging',
+        meta: {
+          title: 'InterfaceDebugging',
+          roles: ['admin'] // or you can only set roles in sub nav
+        }
+      }
+    ]
+  },
 
   {
     path: '/icon',
