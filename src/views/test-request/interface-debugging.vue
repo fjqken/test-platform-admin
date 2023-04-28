@@ -1,42 +1,53 @@
 <template>
   <div>
-    <el-select v-model="value" placeholder="选项1">
-      <el-option
-        v-for="item in options"
-        :key="item.value"
-        :label="item.label"
-        :value="item.value"
-      />
-    </el-select>
+    <div class="head" style="width: 95%;margin-top: 50px">
+      <el-select v-model="value" placeholder="选项1" style="float: left;width: 10%;">
+        <el-option
+          v-for="item in options"
+          :key="item.value"
+          :label="item.label"
+          :value="item.value"
+        />
+      </el-select>
+      <el-input v-model="input3" placeholder="请输入内容" class="input-with-select" style="width: 90%">
+        <el-button slot="append" icon="el-icon-search" />
+      </el-input>
+    </div>
+    <div class="editor-container" style="width: 95%">
+      <json-editor ref="jsonEditor" v-model="json_value" />
+    </div>
   </div>
 </template>
 
 <script>
+import JsonEditor from '@/components/JsonEditor'
+
 export default {
   name: 'InterfaceDebugging',
+  components: { JsonEditor },
   data() {
     return {
       options: [{
-        value: '黄金糕'
+        value: 'GET'
       }, {
-        value: '选项2',
-        label: '双皮奶'
+        value: 'POST'
       }, {
-        value: '选项3',
-        label: '蚵仔煎'
+        value: 'PUT'
       }, {
-        value: '选项4',
-        label: '龙须面'
-      }, {
-        value: '选项5',
-        label: '北京烤鸭'
-      }],
-      value: '黄金糕'
+        value: 'DELETE'
+      }
+      ],
+      value: 'GET',
+      input3: '',
+      select: '1111',
+      json_value: {}
     }
   }
 }
 </script>
 
 <style scoped>
-
+.head{
+  display: flex;
+}
 </style>
