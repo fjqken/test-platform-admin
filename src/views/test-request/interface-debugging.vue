@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="head" style="width: 95%;margin-top: 50px">
+    <div class="head" style="width: 95%;margin-top: 50px;margin-left: 1%">
       <el-select v-model="value" placeholder="选项1" style="float: left;width: 10%;">
         <el-option
           v-for="item in options"
@@ -9,11 +9,10 @@
           :value="item.value"
         />
       </el-select>
-      <el-input v-model="input3" placeholder="请输入内容" class="input-with-select" style="width: 90%">
-        <el-button slot="append" icon="el-icon-search" />
-      </el-input>
+      <el-input v-model="input3" placeholder="请输入内容" class="input-with-select" style="width: 90%" />
+      <el-button style="color: #1f2d3d">确定</el-button>
     </div>
-    <div class="editor-container" style="width: 95%">
+    <div class="editor-container" style="width: 95%;margin-left: 1%;margin-top: 2px">
       <json-editor ref="jsonEditor" v-model="json_value" />
     </div>
   </div>

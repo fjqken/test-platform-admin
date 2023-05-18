@@ -3,6 +3,8 @@ export default {
     dashboard: '首页',
     TestRequest: '接口测试',
     InterfaceDebugging: '接口调试',
+    systemsettings: '系统设置',
+    project: '项目',
     documentation: '文档',
     guide: '引导页',
     permission: '权限测试页',

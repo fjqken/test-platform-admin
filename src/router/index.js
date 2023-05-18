@@ -193,6 +193,29 @@ export const asyncRoutes = [
       }
     ]
   },
+  {
+    path: '/system-settings',
+    component: Layout,
+    redirect: '/system-settings',
+    alwaysShow: true, // will always show the root menu
+    name: 'systemsettings',
+    meta: {
+      title: 'systemsettings',
+      icon: 'lock',
+      roles: ['admin', 'editor'] // you can set roles in root nav
+    },
+    children: [
+      {
+        path: 'project',
+        component: () => import('@/views/system-settings/project'),
+        name: 'project',
+        meta: {
+          title: 'project',
+          roles: ['admin'] // or you can only set roles in sub nav
+        }
+      }
+    ]
+  },
 
   {
     path: '/icon',
