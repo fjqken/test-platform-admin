@@ -206,13 +206,24 @@ export const asyncRoutes = [
     },
     children: [
       {
-        path: 'project',
-        component: () => import('@/views/system-settings/project'),
-        name: 'project',
+        path: 'ProjectMain',
+        component: () => import('@/views/system-settings/project-main'),
+        name: 'ProjectMain',
         meta: {
-          title: 'project',
+          title: 'ProjectMain',
           roles: ['admin'] // or you can only set roles in sub nav
-        }
+        },
+        children: [
+          {
+            path: 'project',
+            component: () => import('@/views/system-settings/project'),
+            name: 'project',
+            meta: {
+              title: 'project',
+              roles: ['admin'] // or you can only set roles in sub nav
+            }
+          }
+        ]
       }
     ]
   },
