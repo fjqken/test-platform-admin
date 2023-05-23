@@ -31,6 +31,15 @@
           label="地址"
         />
       </el-table>
+      <div class="pagination">
+        <el-pagination
+          v-if="total > 0"
+          layout="prev, pager, next"
+          :total="total"
+          :page-size="pageSize"
+          @current-change="handleCurrentChange"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -56,20 +65,51 @@ export default {
         date: '2016-05-03',
         name: '王小虎',
         address: '上海市普陀区金沙江路 1516 弄'
-      }]
+      }], // 表格数据
+      total: 0, // 总记录数
+      pageSize: 10, // 每页显示记录数
+      currentPage: 1 // 当前页码
+    }
+  },
+  mounted() {
+    // 加载默认第一页数据
+    // this.loadData(1)
+  },
+  methods: {
+    loadData(page) {
+      // 模拟异步加载数据
+      setTimeout(() => {
+        const start = (page - 1) * this.pageSize
+        const end = start + this.pageSize
+        const data = []
+        for (let i = start; i < end; i++) {
+          data.push({
+            name: `用户${i + 1}`,
+            age: Math.floor(Math.random() * 50) + 20,
+            gender: Math.random() > 0.5 ? '男' : '女'
+          })
+        }
+        // this.tableData = data
+        this.total = 100 // 总记录数
+        this.currentPage = page // 当前页码
+      }, 500)
+    },
+    handleCurrentChange(page) {
+      this.loadData(page)
     }
   }
 }
 </script>
 
 <style scoped>
-.input-with-select{
+.input-with-select {
   background-color: #fff;
   width: 200px;
-  }
-.head{
+}
+
+.head {
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
 }
 </style>
