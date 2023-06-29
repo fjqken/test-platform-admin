@@ -46,42 +46,14 @@
 </template>
 
 <script>
+import { project_list } from '@/api/project'
+
 export default {
   name: 'Project',
   data() {
     return {
       tableH: 600,
       tableData: [
-        {
-          create_time: '2016-05-01',
-          project_name: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄'
-        },
-        {
-          create_time: '2016-05-02',
-          project_name: '王小虎',
-          address: '上海市普陀区金沙江路 1517 弄'
-        },
-        {
-          create_time: '2016-05-03',
-          project_name: '王小虎',
-          address: '上海市普陀区金沙江路 1519 弄'
-        },
-        {
-          create_time: '2016-05-04',
-          project_name: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄'
-        },
-        {
-          create_time: '2016-05-05',
-          project_name: '王小虎',
-          address: '上海市普陀区金沙江路 1517 弄'
-        },
-        {
-          create_time: '2016-05-06',
-          project_name: '王小虎',
-          address: '上海市普陀区金沙江路 1519 弄'
-        }
       ], // 表格数据
       pageInfo: {
         currentPage: 1,
@@ -92,6 +64,13 @@ export default {
   },
   computed: {},
   created() {
+    project_list({
+      create_user_id: 1,
+      project_name: '汕尾'
+    }).then(response => {
+      console.log(response.data)
+      this.tableData = response.data
+    })
     this.pageInfo.pageTotal = this.tableData.length
   },
   mounted() {
