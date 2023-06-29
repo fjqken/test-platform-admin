@@ -66,7 +66,7 @@ export default {
   created() {
     project_list({
       create_user_id: 1,
-      project_name: '汕尾'
+      project_name: '汕尾 '
     }).then(response => {
       console.log(response.data)
       this.tableData = response.data
