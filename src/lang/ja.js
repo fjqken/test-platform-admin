@@ -20,7 +20,7 @@ export default {
     countTo: 'Count To',
     componentMixin: 'コンポーネントMixin',
     backToTop: 'BackToTop',
-    dragDialog: 'Drag Dialog',
+    dragDialog: 'Drag MyDialog',
     dragSelect: 'Drag Select',
     dragKanban: 'Drag 看板',
     charts: 'チャート',
